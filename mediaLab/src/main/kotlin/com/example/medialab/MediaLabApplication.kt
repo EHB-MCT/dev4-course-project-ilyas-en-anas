@@ -8,4 +8,6 @@ class MediaLabApplication
 
 fun main(args: Array<String>) {
     runApplication<MediaLabApplication>(*args)
+
+    println("its me anas")
 }
