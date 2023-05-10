@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
@@ -28,6 +27,15 @@ import HelloWorld from './components/HelloWorld.vue'
                   <li class="nav-item">
                     <RouterLink class="nav-link" exact  to="/users">Users</RouterLink>
                   </li>
+
+                  <li class="nav-item">
+                    <RouterLink class="nav-link" exact to="/signup">Signup</RouterLink>
+                  </li>
+
+                  <li class="nav-item">
+                    <RouterLink class="nav-link" exact to="/login">Login</RouterLink>
+                  </li>
+
 
                  <!-- <li class="nav-item">
                     <RouterLink class="nav-link" to="/laternog">later</RouterLink>

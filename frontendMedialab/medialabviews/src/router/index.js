@@ -4,6 +4,9 @@ import {
 } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import UserView from '../views/Users/View.vue'
+import SignupView from '../views/SignUpView.vue'
+import LoginView from '../views/LoginView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(
@@ -28,7 +31,18 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: UserView
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: SignupView
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView
     }
+
   ]
 })
 
