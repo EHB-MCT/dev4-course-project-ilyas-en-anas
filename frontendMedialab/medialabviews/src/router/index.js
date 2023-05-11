@@ -1,17 +1,14 @@
-import {
-  createRouter,
-  createWebHistory
-} from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import UserView from '../views/Users/View.vue'
+import LoanView from '../views/Loans/View.vue'
 import SignupView from '../views/SignUpView.vue'
 import LoginView from '../views/LoginView.vue'
 
-
 const router = createRouter({
-  history: createWebHistory(
-    import.meta.env.BASE_URL),
-  routes: [{
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
       path: '/',
       name: 'home',
       component: HomeView
@@ -33,6 +30,14 @@ const router = createRouter({
       component: UserView
     },
     {
+      path: '/loans',
+      name: 'loans',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: LoanView
+    },
+    {
       path: '/signup',
       name: 'signup',
       component: SignupView
@@ -42,7 +47,6 @@ const router = createRouter({
       name: 'login',
       component: LoginView
     }
-
   ]
 })
 

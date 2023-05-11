@@ -29,6 +29,10 @@ import { RouterLink, RouterView } from 'vue-router'
                   </li>
 
                   <li class="nav-item">
+                    <RouterLink class="nav-link" exact  to="/loans">Loans</RouterLink>
+                  </li>
+
+                  <li class="nav-item">
                     <RouterLink class="nav-link" exact to="/signup">Signup</RouterLink>
                   </li>
 
@@ -42,7 +46,7 @@ import { RouterLink, RouterView } from 'vue-router'
                   </li>-->
 
                 </ul>
-              </div>
+              </div> 
             </div>
           </nav>
     </div>

@@ -9,7 +9,7 @@
             type="text"
             class="form-control"
             id="inputName"
-            v-model="name"
+            v-model="name" 
           />
         </div>
         <div class="mb-3">

@@ -9,21 +9,21 @@ import java.time.LocalDate
 data class Loan(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0,
+    var id: Long = 0,
 
     @ManyToOne
     @JoinColumn(name = "item_id", referencedColumnName = "id")
-    val item: Item,
+    var item: Item,
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    val user: User,
+    var user: User,
 
     @Column(nullable = false)
-    val startDate: LocalDate,
+    var startDate: LocalDate,
 
     @Column(nullable = false)
-    val endDate: LocalDate,
+    var endDate: LocalDate,
 
-    val notes: String? = null
+    var notes: String? = null
 )
