@@ -4,6 +4,7 @@ import com.example.medialab.model.Item
 import com.example.medialab.service.ItemService
 import org.springframework.web.bind.annotation.*
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/items")
 class ItemController(private val itemService: ItemService) {

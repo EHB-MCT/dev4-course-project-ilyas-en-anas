@@ -1,5 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import ItemView from '../views/Items/View.vue'
+import ItemDetail from '../views/Items/ItemDetail.vue'
+import ItemUpdate from '../views/Items/ItemUpdate.vue'
+import ItemAdd from '../views/Items/ItemAdd.vue'
 import UserView from '../views/Users/View.vue'
 import LoanView from '../views/Loans/View.vue'
 import SignupView from '../views/SignUpView.vue'
@@ -13,28 +17,39 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
+    //items
     {
       path: '/items',
       name: 'items',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ItemView.vue')
+      component: ItemView
     },
+    {
+      path: '/itemdetail/:id',
+      name: 'itemdetail',
+      component: ItemDetail,
+      props: true
+    },
+    {
+      path: '/itemupdate/:id',
+      name: 'itemupdate',
+      component: ItemUpdate,
+      props: true
+    },
+    {
+      path: '/itemadd',
+      name: 'itemadd',
+      component: ItemAdd
+    },
+    //users
     {
       path: '/users',
       name: 'users',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: UserView
     },
+    //loans
     {
       path: '/loans',
       name: 'loans',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: LoanView
     },
     {
