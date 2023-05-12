@@ -4,16 +4,19 @@ import com.example.medialab.Dto.UserDto
 import com.example.medialab.model.User
 import com.example.medialab.service.UserService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-import org.springframework.web.bind.annotation.CrossOrigin
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
+
 
 @CrossOrigin
 @RestController
 @RequestMapping("/api/users")
 class UserController(private val userService: UserService) {
+
+    @GetMapping("/allusers")
+    fun getAllUsers(): List<User> {
+        return userService.getAllUsers()
+    }
+
     @PostMapping("/register")
     fun registerUser(@RequestBody userDto: UserDto): User {
         return userService.createUser(userDto)

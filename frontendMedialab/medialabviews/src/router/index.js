@@ -4,10 +4,15 @@ import ItemView from '../views/Items/View.vue'
 import ItemDetail from '../views/Items/ItemDetail.vue'
 import ItemUpdate from '../views/Items/ItemUpdate.vue'
 import ItemAdd from '../views/Items/ItemAdd.vue'
-import UserView from '../views/Users/View.vue'
+
 import LoanView from '../views/Loans/View.vue'
+import LoanDetail from '../views/Loans/loanDetail.vue'
+import LoanUpdate from '../views/Loans/loanUpdate.vue'
+import LoanAdd from '../views/Loans/loanAdd.vue'
+
 import SignupView from '../views/SignUpView.vue'
 import LoginView from '../views/LoginView.vue'
+import UserView from '../views/Users/View.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,17 +45,34 @@ const router = createRouter({
       name: 'itemadd',
       component: ItemAdd
     },
-    //users
-    {
-      path: '/users',
-      name: 'users',
-      component: UserView
-    },
     //loans
     {
       path: '/loans',
       name: 'loans',
       component: LoanView
+    },
+    {
+      path: '/loandetail/:id',
+      name: 'loandetail',
+      component: LoanDetail,
+      props: true
+    },
+    {
+      path: '/loanupdate/:id',
+      name: 'loanupdate',
+      component: LoanUpdate,
+      props: true
+    },
+    {
+      path: '/loanadd',
+      name: 'loanadd',
+      component: LoanAdd
+    },
+    //users
+    {
+      path: '/users',
+      name: 'users',
+      component: UserView
     },
     {
       path: '/signup',

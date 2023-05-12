@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserService(private val userRepository: UserRepository, private val roleRepository: RoleRepository) {
+
+    fun getAllUsers(): List<User> {
+        return userRepository.findAll()
+    }
+
     private val passwordEncoder = BCryptPasswordEncoder()
 
     fun login(email: String, password: String): User? {
