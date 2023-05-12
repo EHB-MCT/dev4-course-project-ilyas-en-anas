@@ -13,7 +13,7 @@
         <button type="submit" class="btn btn-primary">Update Item</button>
       </form>
     </main>
-  </template>
+  </template> 
   
   <script>
   import axios from 'axios'

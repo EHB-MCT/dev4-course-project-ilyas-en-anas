@@ -14,6 +14,24 @@ class UserService(private val userRepository: UserRepository, private val roleRe
         return userRepository.findAll()
     }
 
+    fun deleteUser(id: Long) {
+        userRepository.deleteById(id)
+    }
+
+    fun updateUser(id: Long, userDto: UserDto): User {
+        val existingUser = userRepository.findById(id).orElseThrow { Exception("User not found") }
+        val role = roleRepository.findById(userDto.roleId).orElseThrow { NoSuchElementException("Role not found") }
+
+        val updatedUser = existingUser.copy(
+            name = userDto.name ?: "Anonymous",
+            email = userDto.email,
+            password = passwordEncoder.encode(userDto.password),
+            role = role
+        )
+        return userRepository.save(updatedUser)
+    }
+
+
     private val passwordEncoder = BCryptPasswordEncoder()
 
     fun login(email: String, password: String): User? {

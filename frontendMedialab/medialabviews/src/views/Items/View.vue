@@ -70,6 +70,7 @@ export default {
         .catch(error => {
           console.error('There was an error!', error);
           this.actionSuccessful = false
+          alert("A loan exists with this Item!")
         });
     }
   },

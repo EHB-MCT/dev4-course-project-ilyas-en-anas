@@ -1,4 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory
+} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ItemView from '../views/Items/View.vue'
 import ItemDetail from '../views/Items/ItemDetail.vue'
@@ -10,14 +13,18 @@ import LoanDetail from '../views/Loans/loanDetail.vue'
 import LoanUpdate from '../views/Loans/loanUpdate.vue'
 import LoanAdd from '../views/Loans/loanAdd.vue'
 
+import UserView from '../views/Users/View.vue'
+import UserUpdate from '../views/Users/userUpdate.vue'
+import UserAdd from '../views/Users/userAdd.vue'
+
 import SignupView from '../views/SignUpView.vue'
 import LoginView from '../views/LoginView.vue'
-import UserView from '../views/Users/View.vue'
+
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
+  history: createWebHistory(
+    import.meta.env.BASE_URL),
+  routes: [{
       path: '/',
       name: 'home',
       component: HomeView
@@ -74,6 +81,18 @@ const router = createRouter({
       name: 'users',
       component: UserView
     },
+    {
+      path: '/userupdate/:id',
+      name: 'userupdate',
+      component: UserUpdate,
+      props: true
+    },
+    {
+      path: '/useradd',
+      name: 'useradd',
+      component: UserAdd
+    },
+    //sign
     {
       path: '/signup',
       name: 'signup',

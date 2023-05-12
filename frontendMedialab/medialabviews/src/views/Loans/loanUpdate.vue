@@ -49,7 +49,6 @@ methods: {
       .then(response => {
         this.users = response.data
         this.fetchLoan();
-        c
       })
       .catch(error => {
         console.error('There was an error!', error);
