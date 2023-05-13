@@ -21,6 +21,9 @@ import SignupView from '../views/SignUpView.vue'
 import LoginView from '../views/LoginView.vue'
 
 
+
+
+
 const router = createRouter({
   history: createWebHistory(
     import.meta.env.BASE_URL),
@@ -104,6 +107,19 @@ const router = createRouter({
       component: LoginView
     }
   ]
+
+})
+
+router.beforeEach((to, from, next) => {
+  const publicPages = ['/', '/login'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('loggedInUser');
+
+  if (authRequired && !loggedIn) {
+    return next('/login');
+  }
+
+  next();
 })
 
 export default router

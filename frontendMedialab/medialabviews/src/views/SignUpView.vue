@@ -71,6 +71,8 @@ import axios from "axios";
         try {
         const response = await axios.post("http://localhost:3333/api/users/register", userData);
         console.log("User created successfully:", response.data);
+        localStorage.setItem('loggedInUser', JSON.stringify(response.data));
+        console.log('Ingelogde gebruiker:', response.data);
         alert("user created")
         this.$router.push('/home');
       } catch (error) {
@@ -80,4 +82,4 @@ import axios from "axios";
     },
   };
   </script>
-  
+   

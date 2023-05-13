@@ -52,12 +52,14 @@ export default {
         );
         console.log("User status:", response.data);
         
-        // Check if the response contains an error message
+        
         if (response.data === "User not found" || response.data === "Incorrect password") {
-          alert(response.data); // If it does, show an alert with this message
+          alert(response.data); 
         } else {
-          alert("Login successful"); // If not, show a success message
-          this.$router.push('/home'); // and redirect the user to the home page
+          localStorage.setItem('loggedInUser', JSON.stringify(response.data));
+          console.log('Ingelogde gebruiker:', response.data);
+          alert("Login successful"); 
+          this.$router.push('/home'); 
         }
       } catch (error) {
         console.error("Error logging in:", error.response.data);
@@ -66,3 +68,4 @@ export default {
   },
 };
 </script>
+ 
