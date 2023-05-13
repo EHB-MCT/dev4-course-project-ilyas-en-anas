@@ -1,7 +1,8 @@
+<!--
 <template>
   <main>
     <h1>Update User</h1>
-    <form @submit.prevent="updateUser">
+    <form @submit.prevent="updateUser"> 
       <div class="form-group">
         <label for="name">User Name</label>
         <input id="name" v-model="currentUser.name" type="text" class="form-control">
@@ -84,3 +85,4 @@ created() {
 }
 }
 </script>
+-->

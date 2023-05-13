@@ -1,3 +1,4 @@
+<!--
 <template>
     <div>
       <h1>Signup Page</h1>
@@ -82,4 +83,4 @@ import axios from "axios";
     },
   };
   </script>
-   
+   -->

@@ -27,7 +27,7 @@
           <td>{{ user.email }}</td>
           <td>{{ user.role.name }}</td>
           <td>
-            <button @click="$router.push({ name: 'userupdate', params: { id: user.id } })" style="margin-right: 10px;" type="button" class="btn btn-warning">Edit</button>
+            <!--<button @click="$router.push({ name: 'userupdate', params: { id: user.id } })" style="margin-right: 10px;" type="button" class="btn btn-warning">Edit</button>-->
             <button @click="deleteUser(user.id)" style="margin-right: 10px;" type="button" class="btn btn-danger">Delete</button>
           </td>
         </tr>

@@ -21,11 +21,11 @@ const logout = () => {
 </script>
 
 <template>
-  <header v-if="$route.path !== '/' && $route.path !== '/login'">
+  <header v-if="$route.path !== '/login'">
     <div class="wrapper">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <RouterLink class="navbar-brand" exact to="/">Navbar</RouterLink>
+          <RouterLink class="navbar-brand" exact to="/home">EHB Medialab</RouterLink>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -43,13 +43,6 @@ const logout = () => {
               <li class="nav-item">
                 <RouterLink class="nav-link" exact to="/loans">Loans</RouterLink>
               </li>
-
-           <!--   <li class="nav-item">
-                <RouterLink class="nav-link" exact to="/">Signup</RouterLink>
-              </li>
-              <li class="nav-item">
-                <RouterLink class="nav-link" exact to="/login">Login</RouterLink>
-              </li>-->
 
               <li class="nav-item">
                 <button class="nav-link btn btn-danger" @click="logout">Logout</button>
