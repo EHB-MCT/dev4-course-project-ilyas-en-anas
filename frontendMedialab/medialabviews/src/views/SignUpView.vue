@@ -11,7 +11,7 @@
             class="form-control"
             id="inputName"
             v-model="name" 
-          />
+          /> 
         </div>
         <div class="mb-3">
           <label for="inputEmail" class="form-label">Email address</label>

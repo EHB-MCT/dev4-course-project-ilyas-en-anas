@@ -34,13 +34,13 @@ const logout = () => {
               <li class="nav-item">
                 <RouterLink class="nav-link" exact to="/home">Home</RouterLink>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" v-if="loggedInUser && loggedInUser.roleId === 1">
                 <RouterLink class="nav-link" exact to="/items">Items</RouterLink>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" v-if="loggedInUser && loggedInUser.roleId === 1">
                 <RouterLink class="nav-link" exact to="/users">Users</RouterLink>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" v-if="loggedInUser && loggedInUser.roleId === 1">
                 <RouterLink class="nav-link" exact to="/loans">Loans</RouterLink>
               </li>
 

@@ -50,16 +50,16 @@ export default {
           "http://localhost:3333/api/users/login",
           loginData
         );
-        console.log("User status:", response.data);
+        //console.log("User status:", response.data);
         
         
-        if (response.data === "User not found" || response.data === "Incorrect password") {
-          alert(response.data); 
-        } else {
-          localStorage.setItem('loggedInUser', JSON.stringify(response.data));
-          console.log('Ingelogde gebruiker:', response.data);
-          alert("Login successful"); 
+        if (response.status === 200) {
+          localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
+          console.log('Ingelogde gebruiker:', response.data.user);
+          alert(response.data.message); 
           this.$router.push('/home'); 
+        } else {
+          alert(response.data.message); 
         }
       } catch (error) {
         console.error("Error logging in:", error.response.data);

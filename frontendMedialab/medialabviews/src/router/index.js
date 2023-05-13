@@ -103,12 +103,19 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/login']
-  const authRequired = !publicPages.includes(to.path)
-  const loggedIn = localStorage.getItem('loggedInUser')
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
+  const loggedIn = !!loggedInUser
 
-  if (authRequired && !loggedIn) {
+  if (!loggedIn && to.path !== '/login') {
     return next('/login')
+  }
+
+  if (loggedIn) {
+    if (loggedInUser.roleId === 2 && to.path !== '/home') {
+      return next('/home')
+    } else if (loggedInUser.roleId === 1) {
+      return next()
+    }
   }
 
   next()

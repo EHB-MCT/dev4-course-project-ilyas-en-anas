@@ -41,14 +41,29 @@ class UserController(private val userService: UserService) {
     }
 
     @PostMapping("/login")
-    fun loginUser(@RequestBody userDto: UserDto): String {
+    fun loginUser(@RequestBody userDto: UserDto): ResponseEntity<Map<String, Any>> {
         val user = userService.findByEmail(userDto.email)
-            ?: return "User not found"
+            ?: return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(mapOf("message" to "User not found"))
 
         if (!BCryptPasswordEncoder().matches(userDto.password, user.password)) {
-            return "Incorrect password"
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(mapOf("message" to "Incorrect password"))
         }
 
-        return "Login successful"
+        val loggedInUserDto = UserDto(
+            name = user.name,
+            email = user.email,
+            password = "",
+            roleId = user.role.id
+        )
+
+        return ResponseEntity.status(HttpStatus.OK).body(
+            mapOf(
+                "message" to "Login successful",
+                "user" to loggedInUserDto
+            )
+        )
     }
+
 }
