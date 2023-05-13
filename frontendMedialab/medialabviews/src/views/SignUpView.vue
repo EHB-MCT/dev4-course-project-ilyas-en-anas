@@ -41,6 +41,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+      <p>Already have an account? <router-link to="/login">Log in</router-link></p>
     </div>
   </template>
   
@@ -70,6 +71,8 @@ import axios from "axios";
         try {
         const response = await axios.post("http://localhost:3333/api/users/register", userData);
         console.log("User created successfully:", response.data);
+        alert("user created")
+        this.$router.push('/home');
       } catch (error) {
         console.error("Error creating user:", error.response.data);
       }

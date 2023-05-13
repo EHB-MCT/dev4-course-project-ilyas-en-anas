@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service
 
 @Service
 class RoleService(private val roleRepository: RoleRepository) {
-    fun createRole(roleName: String): Role {
-        val role = Role(name = roleName)
-        return roleRepository.save(role)
+    fun createRoles(roleNames: List<String>): List<Role> {
+        return roleNames.map { roleName ->
+            val role = Role(name = roleName)
+            roleRepository.save(role)
+        }
     }
 }

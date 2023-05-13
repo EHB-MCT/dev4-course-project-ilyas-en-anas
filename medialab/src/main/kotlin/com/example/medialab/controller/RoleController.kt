@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/api/roles")
 class RoleController(private val roleService: RoleService) {
     @PostMapping
-    fun createRole(@RequestBody roleName: String): Role {
-        return roleService.createRole(roleName)
+    fun createRoles(@RequestBody roleNames: List<String>): List<Role> {
+        return roleService.createRoles(roleNames)
     }
 }

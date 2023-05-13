@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
+  <header v-if="$route.path !== '/' && $route.path !== '/login'">
    
 
     <div class="wrapper">
@@ -17,7 +17,7 @@ import { RouterLink, RouterView } from 'vue-router'
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                   <li class="nav-item">
-                    <RouterLink class="nav-link" exact   to="/">Home</RouterLink>
+                    <RouterLink class="nav-link" exact   to="/home">Home</RouterLink>
                   </li>
 
                   <li class="nav-item">
@@ -33,7 +33,7 @@ import { RouterLink, RouterView } from 'vue-router'
                   </li>
 
                   <li class="nav-item">
-                    <RouterLink class="nav-link" exact to="/signup">Signup</RouterLink>
+                    <RouterLink class="nav-link" exact to="/">Signup</RouterLink>
                   </li>
 
                   <li class="nav-item">
