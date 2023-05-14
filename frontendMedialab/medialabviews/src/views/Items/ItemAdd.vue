@@ -12,7 +12,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Add Item</button>
       </form>
-    </main>
+    </main> 
   </template>
   
   <script>
