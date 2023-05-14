@@ -2,14 +2,23 @@ package com.example.medialab.service
 
 import com.example.medialab.Dto.LoanDto
 import com.example.medialab.model.Loan
+import com.example.medialab.observer.LoanObserver
 import com.example.medialab.repository.ItemRepository
 import com.example.medialab.repository.LoanRepository
 import com.example.medialab.repository.UserRepository
+import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
+import java.time.LocalDate
 
 
 @Service
 class LoanService(private val loanRepository: LoanRepository, private val itemRepository: ItemRepository, private val userRepository: UserRepository) {
+
+    private val observers: MutableList<LoanObserver> = mutableListOf()
+    fun addObserver(observer: LoanObserver) {
+        observers.add(observer)
+    }
+
     fun getAllLoans(): List<Loan> = loanRepository.findAll()
 
     fun getLoanById(id: Long): Loan = loanRepository.findById(id).orElseThrow { Exception("Loan not found") }
@@ -56,6 +65,19 @@ class LoanService(private val loanRepository: LoanRepository, private val itemRe
         return loanRepository.save(updatedLoan)
     }
 
+    @Scheduled(fixedRate = 5000)
+    fun checkAllLoans() {
+        val now = LocalDate.now()
+        val overdueLoans = loanRepository.findAll()
+            .filter { loan -> loan.endDate.isBefore(now) && !loan.emailSent }
 
+        overdueLoans.forEach { loan ->
+            observers.forEach { observer ->
+                observer.onLoanEndDateExceeded(loan)
+            }
+            loan.emailSent = true
+            loanRepository.save(loan)
+        }
+    }
 
 }

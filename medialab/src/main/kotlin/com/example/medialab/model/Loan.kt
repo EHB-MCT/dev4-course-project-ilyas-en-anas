@@ -25,5 +25,9 @@ data class Loan(
     @Column(nullable = false)
     var endDate: LocalDate,
 
-    var notes: String? = null
+    var notes: String? = null,
+
+    @Column(nullable = false)
+    var emailSent: Boolean = false
+
 )
