@@ -1,14 +1,12 @@
 package com.example.medialab.service
 
 import com.example.medialab.Dto.LoanDto
-import com.example.medialab.model.Item
 import com.example.medialab.model.Loan
-import com.example.medialab.model.User
 import com.example.medialab.repository.ItemRepository
 import com.example.medialab.repository.LoanRepository
 import com.example.medialab.repository.UserRepository
 import org.springframework.stereotype.Service
-import java.time.LocalDate
+
 
 @Service
 class LoanService(private val loanRepository: LoanRepository, private val itemRepository: ItemRepository, private val userRepository: UserRepository) {
@@ -47,4 +45,17 @@ class LoanService(private val loanRepository: LoanRepository, private val itemRe
 
 
     fun deleteLoan(id: Long) = loanRepository.deleteById(id)
+
+    fun getLoansByUserId(userId: Long): List<Loan> = loanRepository.findAllByUserId(userId)
+
+    fun addNoteToLoan(id: Long, note: String): Loan {
+        val existingLoan = getLoanById(id)
+        val updatedLoan = existingLoan.copy(
+            notes = note
+        )
+        return loanRepository.save(updatedLoan)
+    }
+
+
+
 }

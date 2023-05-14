@@ -15,7 +15,7 @@
     <p>Loan ID: {{ loan.id }}</p>
     <p>Loan Start Date: {{ loan.startDate }}</p>
     <p>Loan End Date: {{ loan.endDate }}</p>
-    <p>Loan Notes: {{ loan.notes }}</p>
+    <p>Loan Note: {{ loan.notes }}</p>
   </div>
 </template>
 

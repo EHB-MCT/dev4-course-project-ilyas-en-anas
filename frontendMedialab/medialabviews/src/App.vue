@@ -43,11 +43,16 @@ const logout = () => {
               <li class="nav-item" v-if="loggedInUser && loggedInUser.roleId === 1">
                 <RouterLink class="nav-link" exact to="/loans">Loans</RouterLink>
               </li>
+            </ul>
 
+            <span style="color: white;" class="navbar-text ms-auto" v-if="loggedInUser">Welcome, {{ loggedInUser.name }}</span>
+            
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <button class="nav-link btn btn-danger" @click="logout">Logout</button>
+                <button style="margin-left: 10px;" class="nav-link btn btn-danger" @click="logout">Logout</button>
               </li>
             </ul>
+
           </div> 
         </div>
       </nav>

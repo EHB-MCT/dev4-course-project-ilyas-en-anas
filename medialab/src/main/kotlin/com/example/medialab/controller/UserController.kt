@@ -55,7 +55,8 @@ class UserController(private val userService: UserService) {
             name = user.name,
             email = user.email,
             password = "",
-            roleId = user.role.id
+            roleId = user.role.id,
+            userId = user.id
         )
 
         return ResponseEntity.status(HttpStatus.OK).body(

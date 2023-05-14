@@ -24,4 +24,14 @@ class LoanController(private val loanService: LoanService) {
 
     @DeleteMapping("/{id}")
     fun deleteLoan(@PathVariable id: Long) = loanService.deleteLoan(id)
+
+    @GetMapping("/user/{userId}")
+    fun getLoansByUserId(@PathVariable userId: Long): List<Loan> = loanService.getLoansByUserId(userId)
+
+    @PatchMapping("/{id}/notes")
+    fun addNoteToLoan(@PathVariable id: Long, @RequestBody note: String): Loan {
+        return loanService.addNoteToLoan(id, note)
+    }
+
+
 }
