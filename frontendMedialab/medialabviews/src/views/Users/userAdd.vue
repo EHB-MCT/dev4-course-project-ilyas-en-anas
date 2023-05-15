@@ -1,48 +1,31 @@
 <template>
-  <div>
-    <h1>Add User Page</h1>
-
+  <main class="container mt-5">
+    <h1 class="mb-4">Add a new user</h1>
     <form @submit.prevent="submitForm">
-      <div class="mb-3">
-        <label for="inputName" class="form-label">Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="inputName"
-          v-model="name" 
-        />
+      <div class="form-group">
+        <label for="inputName">Name</label>
+        <input id="inputName" v-model="name" type="text" class="form-control" required>
       </div>
-      <div class="mb-3">
-        <label for="inputEmail" class="form-label">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          id="inputEmail"
-          v-model="email"
-        />
+      <div class="form-group mt-4">
+        <label for="inputEmail">Email address</label>
+        <input id="inputEmail" v-model="email" type="email" class="form-control" required>
       </div>
-      <div class="mb-3">
-        <label for="inputPassword" class="form-label">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          id="inputPassword"
-          v-model="password"
-        />
+      <div class="form-group mt-4">
+        <label for="inputPassword">Password</label>
+        <input id="inputPassword" v-model="password" type="password" class="form-control" required>
       </div>
-      <div class="mb-3">
-        <label for="inputRoleId" class="form-label">Role ID</label>
-        <input
-          type="number"
-          class="form-control"
-          id="inputRoleId"
-          v-model="roleId"
-        />
+      <div class="form-group mt-4">
+        <label for="inputRoleId">Select Role</label>
+        <select id="inputRoleId" v-model="roleId" class="form-control" required>
+          <option value="1">admin</option>
+          <option value="2">user</option>
+        </select>
       </div>
-      <button type="submit" class="btn btn-primary">Add User</button>
+      <button type="submit" class="btn btn-primary mt-4">Add User</button>
     </form>
-  </div>
+  </main> 
 </template>
+
 
 <script>
 import axios from "axios";

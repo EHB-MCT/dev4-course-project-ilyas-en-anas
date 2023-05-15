@@ -1,14 +1,14 @@
 <template>
-  <main> 
-    <h1>This is a users page</h1>
+  <main class="container">
+    <h1 class="text-center my-4">This is a users page</h1>
     <div class="input-group mb-3">
-      <router-link to="/useradd" class="btn btn-primary">+ Add User</router-link>
-      <input type="text" class="form-control ml-2" v-model="search" placeholder="Search users by name">
+      <router-link to="/useradd" class="btn btn-primary mr-2">+ Add User</router-link>
+      <input type="text" class="form-control" v-model="search" placeholder="Search users by name">
     </div>
 
     <div class="alert alert-success" role="alert" v-if="actionSuccessful">
       Action done with success!
-    </div>
+    </div> 
 
     <table class="table table-striped">
       <thead>
@@ -27,14 +27,16 @@
           <td>{{ user.email }}</td>
           <td>{{ user.role.name }}</td>
           <td>
-            <!--<button @click="$router.push({ name: 'userupdate', params: { id: user.id } })" style="margin-right: 10px;" type="button" class="btn btn-warning">Edit</button>-->
-            <button @click="deleteUser(user.id)" style="margin-right: 10px;" type="button" class="btn btn-danger">Delete</button>
+            <!--<button @click="$router.push({ name: 'userupdate', params: { id: user.id } })" class="btn btn-warning mr-2">Edit</button>-->
+            <button @click="deleteUser(user.id)" class="btn btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>
     </table>
   </main>
 </template>
+
+
 
 <script>
 import axios from 'axios'
@@ -51,7 +53,7 @@ export default {
     filteredUsers() { 
       return this.users.filter(user => user.name.toLowerCase().includes(this.search.toLowerCase()))
     }
-  },
+  }, 
   methods: {
     fetchUsers() {
       axios.get('http://localhost:3333/api/users/allusers')

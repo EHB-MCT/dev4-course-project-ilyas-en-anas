@@ -1,23 +1,38 @@
 <template>
-  <div>
-    <h1>All the Details of the loan</h1>
-    <h2>User Details</h2>
-    <p>User ID: {{ loan.user.id }}</p>
-    <p>User Name: {{ loan.user.name }}</p>
-    <p>User Email: {{ loan.user.email }}</p>
-    
-    <h2>Item Details</h2>
-    <p>Item ID: {{ loan.item.id }}</p>
-    <p>Item Name: {{ loan.item.name }}</p>
-    <p>Item Description: {{ loan.item.description }}</p>
+  <main class="container mt-5">
+    <h1 class="text-center my-4">Loan Details</h1>
 
-    <h2>Loan Details</h2>
-    <p>Loan ID: {{ loan.id }}</p>
-    <p>Loan Start Date: {{ loan.startDate }}</p>
-    <p>Loan End Date: {{ loan.endDate }}</p>
-    <p>Loan Note: {{ loan.notes }}</p>
-  </div>
+    <div class="card mb-3">
+      <div class="card-header">
+        Loan ID: {{ loan.id }}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Start Date</h5>
+        <p class="card-text">{{ loan.startDate }}</p>
+        <h5 class="card-title mt-3">End Date</h5>
+        <p class="card-text">{{ loan.endDate }}</p>
+        <h5 class="card-title mt-3">Note</h5>
+        <p class="card-text">{{ loan.notes }}</p>
+
+        <hr>
+
+        <h5 class="card-title mt-3">User Details</h5>
+        <p class="card-text">User ID: {{ loan.user.id }}</p>
+        <p class="card-text">User Name: {{ loan.user.name }}</p>
+        <p class="card-text">User Email: {{ loan.user.email }}</p>
+
+        <hr>
+
+        <h5 class="card-title mt-3">Item Details</h5>
+        <p class="card-text">Item ID: {{ loan.item.id }}</p>
+        <p class="card-text">Item Name: {{ loan.item.name }}</p>
+        <p class="card-text">Item Description: {{ loan.item.description }}</p>
+      </div>
+    </div>
+  </main>
 </template>
+
+
 
 <script>
 import axios from 'axios'

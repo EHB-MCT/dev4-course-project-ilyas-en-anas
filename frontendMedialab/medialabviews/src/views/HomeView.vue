@@ -1,22 +1,30 @@
 <template>
-  <div>
-    <h1>My Loans</h1>
-    <div v-for="loan in loans" :key="loan.id">
-      <h2>Item Details</h2>
-      <p>Item Name: {{ loan.item.name }}</p>
-      <p>Item Description: {{ loan.item.description }}</p>
+  <div class="container">
+    <h1 class="text-center my-4">My Loans</h1>
+    <div class="card mb-3" v-for="loan in loans" :key="loan.id">
+      <div class="card-header">
+        Loan for Item: {{ loan.item.name }}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Item Details</h5>
+        <p class="card-text">Name: {{ loan.item.name }}</p>
+        <p class="card-text">Description: {{ loan.item.description }}</p>
 
-      <h2>Loan Details</h2>
-      <p>Loan Start Date: {{ loan.startDate }}</p>
-      <p>Loan End Date: {{ loan.endDate }}</p>
-      <p>Loan Note: {{ loan.notes }}</p>
+        <h5 class="card-title mt-3">Loan Details</h5>
+        <p class="card-text">Start Date: {{ loan.startDate }}</p>
+        <p class="card-text">End Date: {{ loan.endDate }}</p>
+        <p class="card-text">Note: {{ loan.notes }}</p>
 
-      <h2>Add Note</h2>
-      <input v-model="newNote[loan.id]" type="text">
-      <button @click="addNote(loan.id)">Submit</button>
+        <div class="mt-3">
+          <h5 class="card-title">Add Note</h5>
+          <input class="form-control mb-2" v-model="newNote[loan.id]" type="text">
+          <button class="btn btn-primary" @click="addNote(loan.id)">Submit</button>
+        </div>
+      </div>
     </div>
-  </div>
+  </div> 
 </template>
+
 
 <script>
 import axios from 'axios'

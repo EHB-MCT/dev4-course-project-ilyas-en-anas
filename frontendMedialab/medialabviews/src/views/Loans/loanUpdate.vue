@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <h1>Update a loan</h1>
+  <main class="container mt-5">
+    <h1 class="mb-4">Update a loan</h1>
     <form @submit.prevent="updateLoan">
       <div class="form-group">
         <label for="user">User</label>
@@ -8,25 +8,26 @@
           <option v-for="user in users" :key="user.id" :value="user.id">{{ user.name }}</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group mt-4">
         <label for="item">Item</label>
         <select id="item" v-model="currentLoan.itemId" class="form-control" @change="updateItem">
           <option v-for="item in items" :key="item.id" :value="item.id">{{ item.name }}</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group mt-4">
         <label for="startDate">Start Date</label>
         <input type="date" id="startDate" v-model="currentLoan.startDate" class="form-control">
       </div>
-      <div class="form-group">
+      <div class="form-group mt-4">
         <label for="endDate">End Date</label>
         <input type="date" id="endDate" v-model="currentLoan.endDate" class="form-control">
       </div>
-      <button type="submit" class="btn btn-primary">Update Loan</button>
+      <button type="submit" class="btn btn-primary mt-4">Update Loan</button>
     </form>
   </main>
 </template>
 
+ 
 <script>
 import axios from 'axios'
 

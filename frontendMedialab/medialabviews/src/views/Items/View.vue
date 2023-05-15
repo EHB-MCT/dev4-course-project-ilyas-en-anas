@@ -1,15 +1,15 @@
 <template>
-  <main> 
-    <h1>This is an items page</h1>
+  <main class="container">
+    <h1 class="text-center my-4">This is an items page</h1>
     <div class="input-group mb-3">
-      <router-link to="/itemadd" class="btn btn-primary">+ Add Item</router-link>
-      <input type="text" class="form-control ml-2" v-model="search" placeholder="Search items by name">
+      <router-link to="/itemadd" class="btn btn-primary mr-2">+ Add Item</router-link>
+      <input type="text" class="form-control" v-model="search" placeholder="Search items by name">
     </div>
 
     <div class="alert alert-success" role="alert" v-if="actionSuccessful">
       Action done with success!
-    </div>
-
+    </div> 
+ 
     <table class="table table-striped">
       <thead>
         <tr>
@@ -25,15 +25,16 @@
           <td>{{ item.name }}</td>
           <td>{{ item.description }}</td>
           <td>
-            <button @click="$router.push({ name: 'itemdetail', params: { id: item.id } })" style="margin-right: 10px;" type="button" class="btn btn-info">Info</button>
-            <button @click="$router.push({ name: 'itemupdate', params: { id: item.id } })" style="margin-right: 10px;" type="button" class="btn btn-warning">Edit</button>
-            <button @click="deleteItem(item.id)" style="margin-right: 10px;" type="button" class="btn btn-danger">Delete</button>
+            <button style="margin-right: 10px;" @click="$router.push({ name: 'itemdetail', params: { id: item.id } })" class="btn btn-info mr-2">Info</button>
+            <button style="margin-right: 10px;" @click="$router.push({ name: 'itemupdate', params: { id: item.id } })" class="btn btn-warning mr-2">Edit</button>
+            <button @click="deleteItem(item.id)" class="btn btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>
     </table>
   </main>
 </template>
+
 
 <script>
 import axios from 'axios'

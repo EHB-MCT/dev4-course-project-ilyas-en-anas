@@ -1,19 +1,19 @@
 <template>
-    <main>
-      <h1>Update an item</h1>
-      <form @submit.prevent="updateItem">
-        <div class="form-group">
-          <label for="name">Item Name</label>
-          <input id="name" v-model="currentItem.name" type="text" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="description">Item Description</label>
-          <input id="description" v-model="currentItem.description" type="text" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">Update Item</button>
-      </form>
-    </main>
-  </template> 
+  <main class="container mt-5">
+    <h1 class="mb-4">Update an item</h1>
+    <form @submit.prevent="updateItem">
+      <div class="form-group">
+        <label for="name">Item Name</label>
+        <input id="name" v-model="currentItem.name" type="text" class="form-control" required>
+      </div>
+      <div class="form-group mt-4">
+        <label for="description">Item Description</label>
+        <textarea id="description" v-model="currentItem.description" class="form-control" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary mt-4">Update Item</button>
+    </form>
+  </main> 
+</template>
   
   <script>
   import axios from 'axios'

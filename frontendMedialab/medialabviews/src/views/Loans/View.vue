@@ -1,14 +1,14 @@
 <template>
-  <main> 
-    <h1>This is a loans page</h1>
+  <main class="container">
+    <h1 class="text-center my-4">This is a loans page</h1>
     <div class="input-group mb-3">
-      <router-link to="/loanadd" class="btn btn-primary">+ Add Loan</router-link>
-      <input type="text" class="form-control ml-2" v-model="search" placeholder="Search loans by user name or item name">
+      <router-link to="/loanadd" class="btn btn-primary mr-2">+ Add Loan</router-link>
+      <input type="text" class="form-control" v-model="search" placeholder="Search loans by user name or item name">
     </div>
 
     <div class="alert alert-success" role="alert" v-if="actionSuccessful">
       Action done with success!
-    </div>
+    </div> 
 
     <table class="table table-striped">
       <thead>
@@ -31,15 +31,16 @@
           <td>{{ loan.endDate }}</td>
           <td>{{ loan.notes }}</td>
           <td>
-            <button @click="$router.push({ name: 'loandetail', params: { id: loan.id } })" style="margin-right: 10px;" type="button" class="btn btn-info">Info</button>
-            <button @click="$router.push({ name: 'loanupdate', params: { id: loan.id } })" style="margin-right: 10px;" type="button" class="btn btn-warning">Edit</button>
-            <button @click="deleteLoan(loan.id)" style="margin-right: 10px;" type="button" class="btn btn-danger">Delete</button>
+            <button style="margin-right: 10px;" @click="$router.push({ name: 'loandetail', params: { id: loan.id } })" class="btn btn-info mr-2">Info</button>
+            <button style="margin-right: 10px;" @click="$router.push({ name: 'loanupdate', params: { id: loan.id } })" class="btn btn-warning mr-2">Edit</button>
+            <button @click="deleteLoan(loan.id)" class="btn btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>
     </table>
   </main>
 </template>
+
 
 <script>
 import axios from 'axios'
