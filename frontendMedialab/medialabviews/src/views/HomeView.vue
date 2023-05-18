@@ -42,7 +42,7 @@ export default {
       localStorage.setItem('refreshed', 'true');
       location.reload();
     } else {
-      localStorage.removeItem('refreshed');
+      localStorage.removeItem('refreshed'); 
     }
     
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
